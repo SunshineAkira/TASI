@@ -38,27 +38,27 @@ const server = http.createServer((req, res) => {
             if(imc <= 19.5){
             
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Abaixo do Peso`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Abaixo do Peso`);
             }else if(imc <= 25){
                 
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Peso Normal`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Peso Normal`);
             }else if(imc <= 30){
                 
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Sobre Peso`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Sobre Peso`);
             }else if(imc <= 35){
                 
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Obesidade I`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Obesidade I`);
             }else if(imc <= 40){
                 
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Obesidade II`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Obesidade II`);
             }else{
                 
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Peso:${valorPeso.toFixed(2)}Kg \nAltura:${valorAltura.toFixed(2)} \nIMC = ${imc.toFixed(2)} - Obesidade III`);
+                res.end(`Peso: ${valorPeso.toFixed(2)}Kg \nAltura: ${valorAltura.toFixed(2)} \nIMC: ${imc.toFixed(2)} - Obesidade III`);
             }
         }
 
@@ -72,7 +72,7 @@ const server = http.createServer((req, res) => {
         
         if (isNaN(notaA1) || isNaN(notaA2) || isNaN(media)){
             res.writeHead(400, {'Content-Type':'text/plain; charset=utf-8'});
-            res.end("400 - Entre com um valor valido");
+            res.end("400 - Entre com um valor válido");
         }else{
             
             calculo = (notaA1 + notaA2)/2;
@@ -80,10 +80,10 @@ const server = http.createServer((req, res) => {
             
             if(calculo >= media){
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Considerando notas: \nA1:${notaA1.toFixed(2)} \nA2:${notaA2.toFixed(2)} \nMedia = ${calculo.toFixed(2)} - Aprovado`);
+                res.end(`Considerando notas: \nA1: ${notaA1.toFixed(2)} \nA2: ${notaA2.toFixed(2)} \nMedia: ${calculo.toFixed(2)} - Aprovado`);
             }else{
                 res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-                res.end(`Considerando notas:\nA1:${notaA1.toFixed(2)} \nA2:${notaA2.toFixed(2)} \nMedia = ${calculo.toFixed(2)} - Reprovado`);
+                res.end(`Considerando notas: \nA1: ${notaA1.toFixed(2)} \nA2: ${notaA2.toFixed(2)} \nMedia: ${calculo.toFixed(2)} - Reprovado`);
             }
         }
 
@@ -102,8 +102,8 @@ const server = http.createServer((req, res) => {
 
             
             res.writeHead(200, {'Content-Type':'text/plain; charset=utf-8'});
-            res.end(`R$${valorReais.toFixed(2)} por U$${valorDolar.toFixed(2)} 
-                    é igual U$${convertido.toFixed(2)} convertidos`);
+            res.end(`R$: ${valorReais.toFixed(2)} por U$: ${valorDolar.toFixed(2)} 
+                    é igual U$: ${convertido.toFixed(2)} convertidos`);
         }
     }else{
         res.writeHead(404, {'Context-Type':'text/plain; charset=utf-8'});
@@ -115,3 +115,7 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {          
     console.log(`[OK] - Servidor iniciado em porta: ${PORT}`); 
 });
+
+//http://localhost:5678/imc
+//http://localhost:5678/notas
+//http://localhost:5678/dolar
